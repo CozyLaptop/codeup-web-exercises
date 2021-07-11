@@ -31,7 +31,10 @@ function analyzeColor(input){
         return "Not a recognized color"
     }
 }
-
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("cyan"));
+console.log(analyzeColor("rainbow"));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -69,7 +72,7 @@ function analyzeColor(input) {
  * function to show it to the user.
  */
 var enterAColor = prompt("enter a color");
-analyzeColor(enterAColor);
+alert(analyzeColor(enterAColor));
 
 /* ########################################################################## */
 
@@ -163,3 +166,46 @@ function enterANumber() {
         }
     }
 }
+enterANumber();
+
+function isANumber(enteredNumber) {
+    if (isNaN(enteredNumber)) {
+        alert("That's not a number")
+        return false;
+    }
+    return true;
+}
+
+function evenOrOdd(enteredNumber) {
+    if (enteredNumber % 2 === 0) {
+        alert("Number is even");
+    } else {
+        alert("Number is odd");
+    }
+}
+
+function add100(enteredNumber) {
+    alert("Your number plus 100 = " + (enteredNumber + 100));
+}
+
+function positiveOrNegative(enteredNumber) {
+    if (enteredNumber > 0) {
+        alert("Your number is positive")
+    } else if (enteredNumber < 0) {
+        alert("Your number is negative")
+    } else {
+        alert("0 is neither positive or negative");
+    }
+}
+
+function enterANumberFunctions(){
+    var enteredNumber = parseFloat(prompt("Enter a number"));
+    if (!isANumber(enteredNumber)) {
+        return;
+    } else {
+        evenOrOdd(enteredNumber);
+        add100(enteredNumber);
+        positiveOrNegative(enteredNumber);
+    }
+}
+enterANumberFunctions();
