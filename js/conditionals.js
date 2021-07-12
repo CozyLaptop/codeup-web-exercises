@@ -145,8 +145,7 @@ alert("Your lucky number is " + luckyNumber + ". Your price before discount was 
 
 function enterANumber() {
     if (confirm("Would you like to enter a number?")) {
-        var enteredNumber = prompt("Enter a number");
-        enteredNumber = parseFloat(enteredNumber);
+        var enteredNumber = parseFloat(prompt("Enter a number"));
         if (isNaN(enteredNumber)){
             alert("That's not a number")
         } else {
@@ -176,14 +175,6 @@ function isANumber(enteredNumber) {
     return true;
 }
 
-function evenOrOdd(enteredNumber) {
-    if (enteredNumber % 2 === 0) {
-        alert("Number is even");
-    } else {
-        alert("Number is odd");
-    }
-}
-
 function add100(enteredNumber) {
     alert("Your number plus 100 = " + (enteredNumber + 100));
 }
@@ -197,15 +188,22 @@ function positiveOrNegative(enteredNumber) {
         alert("0 is neither positive or negative");
     }
 }
+function evenOrOdd(enteredNumber) {
+    if (enteredNumber % 2 === 0) {
+        alert("Number is even");
+    } else {
+        alert("Number is odd");
+    }
+}
 
 function enterANumberFunctions(){
     var enteredNumber = parseFloat(prompt("Enter a number"));
     if (!isANumber(enteredNumber)) {
         return;
-    } else {
-        evenOrOdd(enteredNumber);
-        add100(enteredNumber);
-        positiveOrNegative(enteredNumber);
     }
+    evenOrOdd(enteredNumber);
+    add100(enteredNumber);
+    positiveOrNegative(enteredNumber);
 }
 enterANumberFunctions();
+
