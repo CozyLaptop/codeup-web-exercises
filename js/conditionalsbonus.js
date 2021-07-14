@@ -61,17 +61,18 @@ isANumber();
 /////////////////////////////////////
 
 function monthsInSeason(pickedSeason) {
-    if (pickedSeason === "spring") {
-        return "March, April, May";
-    } else if (pickedSeason === "summer") {
-        return "June, July, August";
-    } else if (pickedSeason === "fall" || pickedSeason === "autumn") {
-        return "September, October, November";
-    } else if (pickedSeason === "winter") {
-        return "December, January, February";
-    } else {
-        alert("I don't know that season.");
-        return false;
+    switch (pickedSeason){
+        case "spring":
+            return "March, April, May";
+        case "summer":
+            return "June, July, August";
+        case "fall" || "autumn":
+            return "September, October, November";
+        case "winter":
+            return "December, January, February";
+        default:
+            alert("I don't know that season.");
+            return false;
     }
 }
 
