@@ -25,3 +25,15 @@ function randomNumbers20200(){
 randomNumbers20200();
 
 ///////////////////////////
+function numberPyramid(){
+    let string = "";
+    for(let i = 0; i <= 9; i++) {
+        for (let j = 1; j <= i; j++) {
+            string = string + i.toString();
+        }
+        console.log(string);
+        string = "";
+    }
+}
+numberPyramid();
+//////////////////////////
