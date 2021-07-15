@@ -19,6 +19,6 @@ function sellAllCones(){
             console.log("I cannot sell you " + conesSold + ", I only have " + allCones)
         }
     }while (allCones > 0);
-    console.log("Hey, no more cones! Yay!")
+    console.log("Hey, no more cones! Yay!");
 }
 sellAllCones();
