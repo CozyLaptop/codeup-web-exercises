@@ -27,7 +27,7 @@ randomNumbers20200();
 ///////////////////////////
 function numberPyramid(){
     let string = "";
-    for(let i = 0; i <= 9; i++) {
+    for(let i = 1; i <= 9; i++) {
         for (let j = 1; j <= i; j++) {
             string = string + i.toString();
         }
@@ -37,3 +37,10 @@ function numberPyramid(){
 }
 numberPyramid();
 //////////////////////////
+function countdownByFive(){
+    for (let i = 100; i > 0; i - 5){
+        console.log(i);
+        i -= 5;
+    }
+}
+countdownByFive();
