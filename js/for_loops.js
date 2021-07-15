@@ -5,6 +5,12 @@ function showMultiplicationTable(number){
 }
 showMultiplicationTable(7);
 //////////////////////////////
+
+//generates a random number between and including min and max
+function generateRandomInteger(min, max) {
+    return Math.floor(min + Math.random()*(max + 1 - min))
+}
+
 function randomNumbers20200(){
     for(let i = 0; i <= 10; i++){
         let randomNumber = generateRandomInteger(20, 200);
@@ -17,6 +23,5 @@ function randomNumbers20200(){
     }
 }
 randomNumbers20200();
-function generateRandomInteger(min, max) {
-    return Math.floor(min + Math.random()*(max + 1 - min))
-}
+
+///////////////////////////
