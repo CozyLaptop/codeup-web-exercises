@@ -48,3 +48,17 @@ function countdownByFive() {
 }
 
 countdownByFive();
+
+function isNumeric(input){
+    if (typeof input !== NaN){
+        return true;
+    }
+}
+
+function doingJavascriptRightNow(){
+    return true;
+}
+function onMarsRightNow(){
+    return false;
+}
+onMarsRightNow(9);
