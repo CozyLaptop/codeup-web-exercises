@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Warm Up</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+    /*
+        TODO: Create a function below, concatFirstAndLast, that takes in an array
+         and returns the first and last inputs
+         concatentated together if both elements
+         are strings. If either the first or last element is not a string
+         or if the array contains one or fewer elements, return false.
+
+
+        Example input/output...
+        concatFirstAndLast(['a', 'b', 'c']) // 'ac'
+        concatFirstAndLast([]) // false
+        concatFirstAndLast(['23', '12', 'hello']) // '23hello'
+        concatFirstAndLast([true]) // false
+        concatFirstAndLast([true, 'bob']) // false
+
+     */
+    function concatFirstAndLast(array){
+        if (typeof (array[0] === "string" && typeof (array.length - 1) === "string")){
+            console.log(array[0] + array[array.length - 1])
+            return parseFloat(array[0] + array[array.length - 1);
+        }
+    }
+    concatFirstAndLast(['square', 'rectangle', 'circle', 'triangle'])
+    concatFirstAndLast([])
+    concatFirstAndLast(['23', '12', 'hello'])
+    concatFirstAndLast([true])
+    concatFirstAndLast([true, "bob"])
+</script>
+</body>
+</html>

@@ -41,16 +41,15 @@ numberPyramid();
 
 //////////////////////////
 function countdownByFive() {
-    for (let i = 100; i > 0; i - 5) {
+    for (let i = 100; i > 0; i -= 5) {
         console.log(i);
-        i -= 5;
     }
 }
 
 countdownByFive();
 
 function isNumeric(input){
-    if (typeof input !== NaN){
+    if (!isNaN(input)){
         return true;
     }
 }
