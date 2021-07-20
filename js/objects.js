@@ -14,8 +14,12 @@
     var person = {};
     person.firstName = "Albert";
     person.lastName = "Dominguez"
+    person.sayHello = function (){
+        console.log("Hello from " + this.firstName + " " + this.lastName);
+    }
     console.log(person.firstName);
     console.log(person.lastName);
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -25,7 +29,7 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-
+    person.sayHello();
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
