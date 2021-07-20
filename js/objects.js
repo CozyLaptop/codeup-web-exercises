@@ -82,6 +82,8 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    var newBookList = [];
+    //var book = {};
     var books = [
         {
             title: "To Kill A Mockingbird",
@@ -117,7 +119,7 @@
                 firstName: "George",
                 lastName: "Orwell"
             }
-        }
+        },
     ];
     console.log(books[0].title) // "The Salmon of Doub
     console.log(books[0].author.firstName) // "Douglas"
@@ -127,7 +129,7 @@
     console.log(books[1].author.lastName) // "Adams"
     /**
      * TODO:
-     * Loop through the books array and output the following information about
+     * Loop through the books array anthor.lasd output the following information about
      * each book:
      * - the book number (use the index of the book in the array)
      * - the book title
@@ -151,9 +153,12 @@
      */
 
     books.forEach(function (book, index){
-        console.log("Book # " + (index + 1));
-        console.log("Title: " + book.title);
-        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+
+        showBookInfo(book, index);
+        newBookList.push(createBook(book.title, book.author));
+        // console.log("Book # " + (index + 1));
+        // console.log("Title: " + book.title);
+        // console.log("Author: " + book.author.firstName + " " + book.autName);
     });
     /**
      * Bonus:
@@ -165,5 +170,14 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-
+    function createBook(bookTitle, bookAuthor){
+        return {
+            title: bookTitle,
+            author: {firstName: bookAuthor.firstName, lastName: bookAuthor.lastName}}
+    }
+    function showBookInfo(book, index){
+        console.log("Book # " + (index + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.lastName);
+    }
 })();
