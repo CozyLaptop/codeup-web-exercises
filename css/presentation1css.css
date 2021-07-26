@@ -1,0 +1,117 @@
+/*===== GROUP 1 - Specificity (Room 1)*/
+/*Specificity https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity*/
+/*                                                             Using the curriculum and above article as a reference, create examples to demo the specificity of the following in the correct order:*/
+
+/*classes - OJ*/
+/*elements - OJ*/
+/*ids - Amanda*/
+/*/important - Amanda*/
+/*order of CSS declarations - Sebastian*/
+/*inline styling - Sebastian*/
+/*selector combinations - Albert*/
+/*What does the "Cascading" mean in "Cascading Style Sheets"? - Albert*/
+
+/*classes - OJ*/
+/*Css class selector matches elements based on the contents of their
+class attribute*/
+.specificClass {
+    background-color: red;
+}
+/*elements - OJ*/
+/*----------------------*/
+h1{
+    color: blue;
+}
+/*element is a type selector within css to target all elements with
+the specified name*/
+/*h1*/
+/*h2*/
+/*p*/
+/*div*/
+/*nav*/
+/*Using elements are to describe the data in a web document.
+Elements help give meaning and context to information being displayed.*/
+
+/*ids - Amanda*/
+/*------------------------*/
+#thisIsAnId{
+    color: purple;
+}
+
+/*id selector styles the element with the specified id*/
+/*can be used with javascript*/
+
+/*!important - Amanda*/
+/*-----------------------*/
+
+/*h1{*/
+/*    color: darkgreen !important;*/
+/*}*/
+
+/*The !important rule in CSS is used to add more
+importance to a property/value than normal.
+
+In fact, if you use the !important rule,
+it will override ALL previous styling rules for that
+specific property on that element!
+
+
+/*order of CSS declarations - Sebastian*/
+/*---------------------------*/
+
+/*order of CSS declarations*/
+/*the more specific the rule the greater the precedence*/
+/*Browser style has lowest precedence*/
+/*external styles have the next*/
+/*embedded styles have the next*/
+/*inline styles have top precedence*/
+/*important rule always has precedence*/
+/*rules that are defined later take precedence than those defined earlier*/
+
+/*inline styling - Sebastian*/
+/*-------------------------*/
+/*inline css allows you to apply a unique style to an html element
+on an HTML document, without having to change anything on your css file*/
+/*applied directly to html tag using the style attribute*/
+
+
+/*selector combinations - Albert*/
+/*--------------------*/
+/*selector combinations*/
+/*The descendant selector matches all elements that
+are descendants of a specified element.*/
+/*The following example selects all <p> elements inside <div> elements: */
+div p {
+    background-color: yellow;
+}
+/*The following example selects all <p>
+elements that are children of a <div> element:*/
+/*There can only be one direct child*/
+div > p {
+    background-color: red;
+}
+/*The adjacent sibling selector is used to select an element
+that is directly after another specific element.
+
+Sibling elements must have the same parent element, and
+"adjacent" means "immediately following".
+
+The following example selects the first <p> element that
+are placed immediately after <article> elements:*/
+article + p {
+    background-color: yellow;
+}
+/*The general sibling selector selects all elements that are
+ next siblings of a specified element.*/
+.gold-color{
+    color: gold;
+}
+.gold-color ~ p {
+    background-color: rebeccapurple;
+}
+/*----------------------*/
+/*What does the "Cascading" mean in "Cascading Style Sheets"?*/
+/*Cascading means that styles can fall from one style sheet to another
+Enabling multiple style sheets to be used on one HTML document*/
+/*The styles fall into place based on the order of precedence,
+A style can be overwritten if a style cascades with greater precedence*/
