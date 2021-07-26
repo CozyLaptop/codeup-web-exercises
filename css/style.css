@@ -1,6 +1,32 @@
 h1{
     color: purple;
+    text-align: center;
+}
+h2{
+    color: darkred;
+    text-decoration: underline;
+}
+body{
+    font-family: 'Zen Tokyo Zoo', cursive;
+background-color: blue;
+ background-image: url("https://i.kym-cdn.com/entries/icons/facebook/000/009/547/Kirby-Wallpaper-kirby-5558995-1680-1050.jpg");
+}
+li{
+    list-style: decimal;
 }
 .fancy-header{
-
+}
+td{
+    padding: 10px;
+    font-size: 20px;
+}
+tr{
+    font-size: 30px;
+    padding: 10px;
+}
+a:link{
+    color: yellow;
+}
+a:visited {
+    color: gray;
 }
