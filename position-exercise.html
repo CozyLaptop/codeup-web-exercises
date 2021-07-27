@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Positioning Exercise</title>
+  <style>
+
+    body {
+      height: 1000px;
+      font-family: arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 4em;
+    }
+
+    .popup {
+      border: 1px solid lightgrey;
+      box-shadow: 5px 5px 5px lightgrey;
+      padding: 1em;
+      width: 300px;
+      border-radius: 3px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      /* TODO: the popup should set in place 20px away from the bottom right corner screen, even when scrolling */
+
+    }
+
+    .x-icon {
+      border: 1px solid darkgrey;
+      border-radius: 1px;
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px 2px 0 2px;
+      color: darkgray;
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      /* TODO: the 'x' icon should be 4px away from the top right corner of the popup */
+
+    }
+
+    .logo {
+      margin: 0 auto;
+      display: block;
+      z-index: 1;
+      position: relative;
+      bottom: 40px;
+      /* TODO: the logo should straddle the top line. Move it up 40px from it's current position */
+
+    }
+
+    p {
+      margin: 0;
+      /* TODO: the paragraph is too low and should be moved up 20px */
+      position: relative;
+      bottom: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>Positioning Exercise</h1>
+
+<div class="popup">
+  <img class="logo" src="img/OfficialCodeupLogo.png" width="70" alt="codeup logo">
+  <span class="x-icon">&#10006;</span>
+
+  <p>
+    Looking for a career change, but unsure of what to do next? We're here to help!
+  </p>
+</div>
+
+</body>
+</html>
