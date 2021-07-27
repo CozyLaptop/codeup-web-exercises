@@ -1,3 +1,7 @@
+body{
+    background-image: url("https://i.kym-cdn.com/entries/icons/facebook/000/009/547/Kirby-Wallpaper-kirby-5558995-1680-1050.jpg");
+    position: fixed;
+}
 h1{
     color: purple;
     text-align: center;
@@ -6,11 +10,26 @@ h2{
     color: darkred;
     text-decoration: underline;
 }
-body{
+.container {
+
+    transform:skew(60deg, -30deg) scaleY(.66667);
+    /*transform-style: inherit;*/
     font-family: 'Zen Tokyo Zoo', cursive;
-background-color: blue;
- background-image: url("https://i.kym-cdn.com/entries/icons/facebook/000/009/547/Kirby-Wallpaper-kirby-5558995-1680-1050.jpg");
+    font-size:86px;
+    color:#FFF;
+    /*top:50%;*/
+    /*left:0%;*/
+    height: 1000px;
+    width: 1000px;
+    line-height:.7;
+    font-weight:bold;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    position: absolute;
+    left: 500px;
+    top: -50px;
 }
+
 li{
     list-style: decimal;
 }
@@ -29,4 +48,24 @@ a:link{
 }
 a:visited {
     color: gray;
+}
+/*div {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background: red;*/
+/*    transition: width 2s, height 2s, transform 2s;*/
+/*}*/
+
+/*div:hover {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    transform: rotate(180deg);*/
+/*}*/
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
