@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Names Wamrup</title>
+</head>
+<body>
+<script>
+  function getSimpleUser(user){
+    return {
+      firstName: user.firstName.toLowerCase(),
+      lastName: user.lastName.toLowerCase()
+    };
+  }
+  var fred = {
+    firstName: 'Fred',
+    lastName: 'Smith',
+    email: 'fred@email.com',
+    username: 'fred123',
+    password: 'pass123'
+  }
+  getSimpleUser(fred) // {firstName: 'fred', lastName: 'smith'}
+</script>
+</body>
+</html>
