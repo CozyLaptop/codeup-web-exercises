@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Order Pizza</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>Order Pizza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<main class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +24,26 @@
       </div>
     </div>
   </nav>
-</main>
+  <main class="container">
+    <div class="jumbotron jumbotron-fluid d-none d-sm-block">
+      <div class="container remove-padding">
+        <h1 class="display-4">Welcome to Pizza World!</h1>
+      </div>
+    </div>
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <span class="badge badge-pill badge-secondary">1</span>
+          Size and crust</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cheese and Sauce</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Toppings</a>
+      </li>
+    </ul>
+  </main>
 </body>
 </html>

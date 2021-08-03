@@ -11,12 +11,17 @@
   function analyzeArray(array){
     var lengthOfArray = array.length;
     var containsAllStrings = true;
+    var containsAllNums = true;
     var combineResult = "";
-    for (var i = 0; i < array.length; i++){
-      if (typeof array[i] !== "string"){
+    for (let i = 0; i < array.length; i++) {
+      if (typeof array[i] !== "string") {
         containsAllStrings = false;
       }
+      if (typeof array[i] !== "number"){
+        containsAllNums = false;
+      }
       combineResult += array[i];
+      if (cont)
     }
     return {
       lengthOfArray,
