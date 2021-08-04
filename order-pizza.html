@@ -31,19 +31,96 @@
       </div>
     </div>
     <h2>Build your own pizza!</h2>
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="nav-item active">
+        <a class="nav-link active" href="#tab-01" aria-controls="tab-01"
+           role="tab">
           <span class="badge badge-pill badge-secondary">1</span>
           Size and crust</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cheese and Sauce</a>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" href="#tab-02">
+          <span class="badge badge-pill badge-secondary">2</span>
+          Cheese and Sauce</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Toppings</a>
+        <a class="nav-link" href="#">
+          <span class="badge badge-pill badge-secondary">3</span>
+          Toppings</a>
       </li>
     </ul>
+<!--    -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        Choose size and crust
+      </div>
+<!--      -->
+      <div class="card">
+        <div class="card-body">
+        <div class="card-header">
+          Hand Tossed
+        </div>
+<!--          -->
+          <div class="card-body">
+            <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+          </div>
+<!--          -->
+          <ul class="list-group list-group-flush:">
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                Small (10")
+                </label>
+              </div>
+            </li>
+            <li class="list-group-item">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                Medium (12")
+              </label>
+            </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br>
+<!---->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">
+            Crispy Thin
+          </div>
+          <!--          -->
+          <div class="card-body">
+            <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
+          </div>
+          <!--          -->
+          <ul class="list-group list-group-flush:">
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Medium (12")
+                </label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Large (14")
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right">Next Step ></button>
+      </div>
+    </div>
   </main>
 </body>
 </html>
