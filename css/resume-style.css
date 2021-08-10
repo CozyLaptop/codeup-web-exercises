@@ -1,0 +1,18 @@
+.empty-header{
+    height: 200px;
+}
+header{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    background-color: skyblue;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    display:flex;
+    justify-content: center;
+}
+.header-name{
+    font-size: 110px;
+    color: white;
+    justify-self: baseline;
+}
