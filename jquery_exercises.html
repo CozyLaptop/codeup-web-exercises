@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Exercises</title>
+</head>
+<body>
+<h1 class="codeup">JQuery Exercises</h1>
+<h2 id="second-title">Title???</h2>
+
+<ul>
+    <li id="first">I</li>
+    <li class="codeup">like</li>
+    <li class="codeup">unordered</li>
+    <li id="last">lists</li>
+</ul>
+<p class="random-paragraph">Hello I'm a paragraph</p>
+<div class="random-container">
+    Okay, now I'm a div container
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+</script>
+<script>
+$(document).ready(function() {
+    "use strict";
+    // alert("Ready!");
+    // alert($("#second-title"));
+    // $(".codeup").css("border", "1px red solid")
+    $("li").css("font-size", "20px");
+    $("h1, p, li").css("background-color", "yellow");
+    alert($("h1").html());
+});
+</script>
+</body>
+</html>
