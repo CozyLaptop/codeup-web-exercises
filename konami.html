@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="konami-code-input">
+
+    </h1>
+    <h1 class="konami-code">
+
+    </h1>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        var code = [];
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13]
+        $(document).keydown(function (event){
+            code.push(event.keyCode);
+            if ((code.slice(code.length - 11, code.length).toString()) === konamiCode.toString()){
+                alert("30 Extra lives!")
+            }
+        });
+    });
+</script>
+</body>
+</html>

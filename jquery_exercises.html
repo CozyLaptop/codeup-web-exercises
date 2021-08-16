@@ -3,32 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>JQuery Exercises</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="codeup">JQuery Exercises</h1>
-<h2 id="second-title">Title???</h2>
+<div class="container">
+    <h1 class="codeup">JQuery Exercises</h1>
+    <h2 id="second-title">Title???</h2>
 
-<ul>
-    <li id="first">I</li>
-    <li class="codeup">like</li>
-    <li class="codeup">unordered</li>
-    <li id="last">lists</li>
-</ul>
-<p class="random-paragraph">Hello I'm a paragraph</p>
-<div class="random-container">
-    Okay, now I'm a div container
+    <ul>
+        <li id="first">I</li>
+        <li class="codeup">like</li>
+        <li class="codeup">unordered</li>
+        <li id="last">lists</li>
+    </ul>
+    <p class="random-paragraph">Hello I'm a paragraph</p>
+    <div class="random-container">
+        Okay, now I'm a div container
+    </div>
 </div>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
-</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
     "use strict";
     // alert("Ready!");
     // alert($("#second-title"));
     // $(".codeup").css("border", "1px red solid")
-    $("li").css("font-size", "20px");
+    // $("li").css("font-size", "20px");
     $("h1, p, li").css("background-color", "yellow");
-    alert($("h1").html());
+    $("h1").click(
+        function (){
+            $(this).css("background-color", "blue");
+        //    add a class
+        //     $(this).addClass("random-class");
+        }
+    )
+    $("p").dblclick(
+        function (){
+            $(this).css("font-size", "18px");
+        }
+    )
+    $("li").hover(
+        function (){
+            $(this).css("color", "red");
+        },
+        function (){
+            $(this).css("color", "black");
+        }
+    )
 });
 </script>
 </body>
