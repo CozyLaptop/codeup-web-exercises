@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery FAQ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <dl>
+        <dt>Is the Great Smoky Mountains National Park the Salamander Capital of the world?</dt>
+        <dd class="invisible">Yes!</dd>
+
+        <dt>How many National Parks in the United States?</dt>
+        <dd class="invisible">63.</dd>
+
+        <dt>What's the most popular National Park?</dt>
+        <dd class="invisible">The Grand Canyon.</dd>
+
+        <dt>Do you have to be wary of bears?</dt>
+        <dd class="invisible">Of course!!!</dd>
+
+        <dt>Which National Park has the most wild animals to see?</dt>
+        <dd class="invisible">Theodore Roosevelt National Park</dd>
+
+        <dt>Are their guided tours such as wildlife and scenery?</dt>
+        <dd class="invisible">Yes you can get a Guided Tour!</dd>
+
+        <dt>How many visits were there in National Parks in the USA?</dt>
+        <dd class="invisible">327 Million</dd>
+
+        <dt>Can we make campfires in the Wilderness?</dt>
+        <dd class="invisible">Yes, but certain restrictions may apply during droughts and wildfire risk.</dd>
+
+        <dt>Where can I make a reservation for a campsite?</dt>
+        <dd class="invisible">You can do it online!</dd>
+
+        <dt>Do I have to pay to enter a National Park?</dt>
+        <dd class="invisible">Yes, you can do so online.</dd>
+    </dl>
+    <a href="#" id="toggle-invisible">Click to toggle the highlighting of important text.</a>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+    $(document).ready(function() {
+        $(`#toggle-invisible`).click(function(event) {
+            event.preventDefault(event);
+            console.log("Clicked")
+            $('dd').toggleClass('invisible');
+        });
+    });
+</script>
+</body>
+</html>
