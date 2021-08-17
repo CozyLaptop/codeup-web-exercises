@@ -43,6 +43,7 @@
         <dt>Do I have to pay to enter a National Park?</dt>
         <dd class="invisible">Yes, you can do so online.</dd>
     </dl>
+    <a href="#" id="toggle-invisible">Click to toggle invisible text.</a>
     <h3>Grand Canyon</h3>
     <ul>
         <li>Most popular tourist attraction.</li>
@@ -71,8 +72,7 @@
         <li>Average canopy height is over 100ft tall</li>
         <li>Red maple trees can be found here.</li>
     </ul>
-    <a href="#" id="toggle-invisible">Click to toggle the highlighting of important text.</a>
-
+    <button type="button" id="clickMe">Click Me!</button>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -83,6 +83,11 @@
             event.preventDefault(event);
             console.log("Clicked")
             $('dd').toggleClass('invisible');
+        });
+        $('#clickMe').click(function (){
+           $('ul').each(function (){
+               $(this).children().last().css("background-color", "cornsilk");
+           })
         });
     });
 </script>
