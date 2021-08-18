@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 </head>
-<body>
+<body class="container text-center">
 
 <h1>My Tool Store</h1>
-
-<table id="products">
+<div class="d-flex justify-content-center">
+<table class="" id="products">
     <thead>
         <tr>
             <th>Title</th>
@@ -18,31 +20,30 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-<button id="reload" type="button">Reload!</button>
+</div>
+<button class="m-2 btn-lg btn-primary" id="reload" type="button">Reload!</button>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
 <script>
 (function() {
     "use strict";
-    $.ajax("data/inventory.json").done(function() {
-        function reloadPage(products){
-            $.get("data/inventory.json").done(function(products) {
-                $("#insertProducts").html("");
-                products.forEach(function (product){
-                    $("#insertProducts").append(
-                        "<tr>" +
-                        "<td>" + product.title + "</td>" +
-                        "<td>" + product.quantity + "</td>" +
-                        "<td>" + product.price + "</td>" +
-                        "<td>" + product.categories + "</td>" +
-                        "</tr>"
-                    );
-                });
+    function reloadPage(){
+        $.ajax("data/inventory.json").done(function(products) {
+            $("#insertProducts").html("");
+            products.forEach(function (product){
+                $("#insertProducts").append(
+                    "<tr>" +
+                    "<td>" + product.title + "</td>" +
+                    "<td>" + product.quantity + "</td>" +
+                    "<td>" + product.price + "</td>" +
+                    "<td>" + product.categories + "</td>" +
+                    "</tr>"
+                );
             });
-        }
-        reloadPage();
-        $("#reload").click(reloadPage);
-    });
+        });
+    }
+    reloadPage();
+    $("#reload").click(reloadPage);
+
     // TODO: Create an AJAX GET request for the file under data/inventory.json
 
     // TODO: Take the data from inventory.json and append it to the products table
@@ -51,6 +52,7 @@
     //       HINT: You will want to target #insertProducts for your new HTML elements
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 </body>
 </html>
