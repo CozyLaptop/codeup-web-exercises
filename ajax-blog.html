@@ -5,6 +5,35 @@
     <title>Ajax blog</title>
 </head>
 <body>
+<div id="posts"></div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    (function() {
+        "use strict";
+        function reloadPage(){
+            $.get("data/inventory.json").done(function(products) {
+                $("#insertProducts").html("");
+                products.forEach(function (product){
+                    $("#insertProducts").append(
+                        "<tr>" +
+                        "<td>" + product.title + "</td>" +
+                        "<td>" + product.quantity + "</td>" +
+                        "<td>" + product.price + "</td>" +
+                        "<td>" + product.categories + "</td>" +
+                        "</tr>"
+                    );
+                });
+            });
+        }
+        reloadPage();
+        $("#reload").click(reloadPage);
 
+        // TODO: Create an AJAX GET request for the file under data/inventory.jso
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+    })();
+</script>
 </body>
 </html>

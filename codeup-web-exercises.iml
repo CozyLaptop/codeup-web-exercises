@@ -11,5 +11,6 @@
     <orderEntry type="library" name="jquery-2.2.4" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="mapbox-gl" level="application" />
   </component>
 </module>
