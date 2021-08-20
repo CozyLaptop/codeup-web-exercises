@@ -14,22 +14,6 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body class="container text-center">
-
-<h1>My Tool Store</h1>
-<div class="d-flex justify-content-center">
-  <table class="" id="products">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Categories</th>
-    </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-  </table>
-</div>
-<button class="m-2 btn-lg btn-primary" id="reload" type="button">Reload!</button>
 <div id='map' style='width: 400px; height: 300px;'></div>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
@@ -41,35 +25,6 @@
     center: [-74.5, 40], // starting position [lng, lat]
     zoom: 9 // starting zoom
   });
-</script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>
-  (function() {
-    "use strict";
-    function reloadPage(){
-      $.ajax("data/inventory.json").done(function(products) {
-        $("#insertProducts").html("");
-        products.forEach(function (product){
-          $("#insertProducts").append(
-                  "<tr>" +
-                  "<td>" + product.title + "</td>" +
-                  "<td>" + product.quantity + "</td>" +
-                  "<td>" + product.price + "</td>" +
-                  "<td>" + product.categories + "</td>" +
-                  "</tr>"
-          );
-        });
-      });
-    }
-    reloadPage();
-    $("#reload").click(reloadPage);
-
-    // TODO: Create an AJAX GET request for the file under data/inventory.jso
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-  })();
 </script>
 </body>
 </html>
