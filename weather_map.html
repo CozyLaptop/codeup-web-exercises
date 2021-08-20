@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>MapBox Exercise API</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      #map {
+        width: 800px;
+        height: 800px;
+      }
+    </style>
+  </head>
+  <!---->
+  <body>
+    <div id="map"></div>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <script src="js/keys.js"></script>
+    <script>
+      "use strict";
+
+      mapboxgl.accessToken = MAPBOX_API_TOKEN;
+      var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.49584979998528, 29.411475037661923], // starting position [lng, lat]
+        zoom: 14 // starting zoom
+      });
+      var marker = new mapboxgl.Marker({
+        draggable: true,
+        // offset: [0, 10]
+      })
+              .setLngLat([-98.49584979998528, 29.411475037661923])
+              .addTo(map);
+      var popup = new mapboxgl.Popup({})
+              .setLngLat([-98.49584979998528, 29.411475037661923])
+              .setHTML("<p>The Guenther House</p>")
+              .addTo(map);
+
+      function onDragEnd() {
+        const lngLat = marker.getLngLat();
+        popup
+                .setHTML(`Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`)
+                .addTo(map)
+                .setLngLat(lngLat);
+      }
+      marker.on('dragend', onDragEnd);
+      function geocode(search) {
+        var token = MAPBOX_API_TOKEN;
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                  return res.json();
+                }).then(function(data) {
+                  return data.features[0].center;
+                });
+      }
+      marker.setLngLat([-98.49584979998528, 29.411475037661923])
+      marker.setPopup(popup);
+
+    </script>
+  </body>
+</html>
