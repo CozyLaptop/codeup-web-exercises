@@ -2,9 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>First Exercise Map</title>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    #map {
+      width: 800px;
+      height: 800px;
+    }
+  </style>
 </head>
 <body>
-$END$
+
+<div id="map"></div>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script>
+  "use strict";
+
+  mapboxgl.accessToken = MAPBOX_API_TOKEN;
+  var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [-77.0369, 38.9072], // starting position [lng, lat]
+    zoom: 12 // starting zoom
+  });
+//   var marker = new mapboxgl.Marker({
+//     draggable: true)
+//           // .setLngLat([-77.0353, 38.8895])
+//           .addTo(map);
+//
+//   function onDragEnd() {
+//     const lngLat = marker.getLngLat();
+//     popup
+//             .setHTML(`Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`)
+//             .addTo(map)
+//             .setLngLat(lngLat);
+//     // mapboxgl.Popup().setHTML(`Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;)
+//     // coordinates.style.display = 'block';
+//     // coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+//   }
+//   marker.on('dragend', onDragEnd);
+//   function geocode(search, token) {
+//     var baseUrl = 'https://api.mapbox.com';
+//     var endPoint = '/geocoding/v5/mapbox.places/';
+//     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+//             .then(function(res) {
+//               return res.json();
+//               // to get all the data from the request, comment out the following three lines...
+//             }).then(function(data) {
+//               console.log(data.features[0].center)
+//               return data.features[0].center;
+//             });
+//   }
+// map.setCenter(geocode("Whitefish, montana", MAPBOX_API_TOKEN, map)) ;
+//   function placeMarkerAndPopup(info, token, map) {
+//     geocode(info, token).then(function(coordinates) {
+//       marker
+//               .setLngLat(coordinates)
+//               .addTo(map)
+//               .setPopup(popup);
+//       popup
+//               .addTo(map);
+//     });
+//   }
+
+  // placeMarkerAndPopup("Whitefish, montana", MAPBOX_API_TOKEN, map);
+  // setTimeout(function() {
+  //   map.setZoom(3);
+  //   map.setStyle('mapbox://styles/mapbox/satellite-v9');
+  //   map.setCenter([-100.9431, 20.6047]);
+  // }, 5000);
+
+
+</script>
+
 </body>
 </html>
