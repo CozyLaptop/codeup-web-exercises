@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <title>MapBox Exercise API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="css/weather_map_style.css">
-
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+      <link rel="stylesheet" href="css/weather_map_style.css">
   </head>
   <body class="container-fluid">
-    <div class="row no-gutters everything-container">
+   <div class="row no-gutters everything-container">
       <div class="col-7 mb-3">
-        <form id="inputForm" class="centered">
-          <input class="mt-2 form-control shadow" type="text" id="placeInput" placeholder="Enter a zipcode, city, state, etc.">
-        </form>
-        <div id="map" class="m-1"></div>
+          <div id="geocoder" class="geocoder"></div>
+          <div id="map" class="m-1"></div>
       </div>
       <div class="col-5 no-gutters card-col">
         <div class="card mt-1 mb-2 ml-2 mr-2 text-white bg-info text-center place">SAN ANTONIO, TX, UNITED STATES</div>
-        <div class="row insert-cards"></div>
+        <div class="row insert-cards mb-1"></div>
       </div>
-
+   </div>
+   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 <!--    -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
-      <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
-      <script src="js/keys.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+   <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+   <script src="js/keys.js"></script>
 <!--    -->
-    <script>
-      "use strict";
-      var placeName;
-      mapboxgl.accessToken = MAPBOX_API_TOKEN;
-
+   <script>
+       "use strict";
+       var placeName;
+       mapboxgl.accessToken = MAPBOX_API_TOKEN;
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -40,44 +38,43 @@
         center: [-98.491142, 29.424349] ,
         zoom: 10
       });
-
-      var marker = new mapboxgl.Marker({
-        draggable: true,
-      })
-              // Set marker to San Antonio on start
-              .setLngLat([-98.49584979998528, 29.411475037661923])
-              .addTo(map);
-
-      $("#inputForm").submit(function (e){
-        e.preventDefault();
-        geocode($("#placeInput").val(), MAPBOX_API_TOKEN).then(function (data){
-          console.log(data);
-          var searchedLonLat = [data.features[0].center[0], data.features[0].center[1]];
-          map.setCenter(searchedLonLat);
-          map.setZoom(8);
-          marker.setLngLat(searchedLonLat);
-          var placeName = data.features[0].place_name;
-          $(".place").html(placeName);
+       const geocoder = new MapboxGeocoder({
+           accessToken: mapboxgl.accessToken,
+           marker: false,
+           mapboxgl: mapboxgl
+       });
+       var marker = new mapboxgl.Marker({
+           draggable: true,
+       })
+       .setLngLat([-98.49584979998528, 29.411475037661923])
+       .addTo(map);
+       geocoder.on('result', function(data) {
+           console.log(data);
+           marker.setLngLat([data.result.center[0],data.result.center[1]]).addTo(map)
+           $(".place").html(data.result.place_name);
+           refreshCards();
+       });
+      marker.on('dragend', function() {
+        var coord = {
+          lat: marker.getLngLat().lat,
+          lng: marker.getLngLat().lng }
+        reverseGeocode(coord, MAPBOX_API_TOKEN).then(function (data){
+            console.log(data);
+          $(".place").html(data.features[0].place_name);
           refreshCards();
         });
       });
 
-      marker.on('dragend', refreshCards);
-
-      function refreshCards() {
+      function refreshCards(){
         $(".insert-cards").html("");
         $.get('https://api.openweathermap.org/data/2.5/onecall', {
           appid: WEATHER_MAP_API_TOKEN,
-          //San Antonio
-          // lat: 29.4252,
-          // lon: -98.4916,
           lat: marker.getLngLat().lat,
           lon: marker.getLngLat().lng,
           units: 'imperial'
         }).done(function (data) {
           data.daily.forEach(function (day, index) {
             var displayDay;
-
             if (index === 0) {
               displayDay = "Today";
             } else if (index === 1) {
@@ -110,8 +107,8 @@
           console.log(error);
         });
       }
-
       refreshCards();
+
       // Geocode and reverseGeocode functions
       function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
@@ -119,11 +116,7 @@
         return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
                 .then(function(res) {
                   return res.json();
-                  // to get all the data from the request, comment out the following three lines...
                 })
-                // .then(function(data) {
-                //   return data.features[0].center;
-                // });
       }
       function reverseGeocode(coordinates, token) {
         var baseUrl = 'https://api.mapbox.com';
@@ -132,10 +125,6 @@
                 .then(function(res) {
                   return res.json();
                 })
-                // to get all the data from the request, comment out the following three lines...
-                .then(function(data) {
-                  return data.features[0].place_name;
-                });
       }
       //Functions for correct formatting of strings
 
@@ -190,13 +179,7 @@
                 ( d.getHours() < 12 ? ' AM' : ' PM' )
         );
       }
-      map.addControl(
-              new MapboxGeocoder({
-                accessToken: MAPBOX_API_TOKEN,
-                mapboxgl: mapboxgl
-              })
-      );
-
-    </script>
+      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+   </script>
   </body>
 </html>

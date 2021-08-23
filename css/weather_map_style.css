@@ -28,3 +28,14 @@ body{
     overflow: hidden scroll;
 
 }
+.geocoder {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 50%;
+    margin-left: -25%;
+    top: 10px;
+}
+.mapboxgl-ctrl-geocoder {
+    min-width: 100%;
+}
