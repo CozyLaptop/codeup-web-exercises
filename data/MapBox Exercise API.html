@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)http://localhost:63342/codeup-web-exercises/weather_map.html?_ijt=ltk9fkarj3fglljvscufno0316 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>MapBox Exercise API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./MapBox Exercise API_files/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="./MapBox Exercise API_files/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="./MapBox Exercise API_files/weather_map_style.css">
+
+  </head>
+  <body class="container-fluid" cz-shortcut-listen="true">
+    <div class="row no-gutters">
+      <div class="col-6">
+        <div class="centered">
+          <input class="mt-2 form-control shadow" id="placeInput" placeholder="Enter a zipcode, city, state, etc.">
+        </div>
+          <div id="map" class="mapboxgl-map">
+        <div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="1056" height="960" style="width: 528px; height: 480px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><button class="mapboxgl-ctrl-attrib-button" type="button" title="Toggle attribution" aria-label="Toggle attribution"></button><div class="mapboxgl-ctrl-attrib-inner" role="list"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a href="https://www.mapbox.com/map-feedback/" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem">Improve this map</a></div></div></div></div></div>
+      </div>
+      <div class="col-6 no-gutters left-side">
+        <div class="row insert-cards">
+<!--          <div class="col-12 mt-1 clone">-->
+<!--            <div class="card text-white bg-info ">-->
+<!--              <div class="row weather-box">-->
+<!--                <div class="col-6 text-center mt-auto mb-auto">-->
+<!--                  <h4 class="city mt-2">San Antonio, TX</h4>-->
+<!--                  <h2 class="weather font-weight-bold">WEATHER</h2>-->
+<!--                  <h5 class="description font-weight-light">DESCRIPTION</h5>-->
+<!--                </div>-->
+<!--                <div class="col-6 text-center mt-auto mb-auto">-->
+<!--                  <h6 class="humidity mr-3 font-weight-light align-self-end">HUMIDITY</h6>-->
+<!--                  <h6 class="wind mr-3 font-weight-light align-self-end">WIND</h6>-->
+<!--                  <h6 class="pressure mr-3 font-weight-light align-self-end">PRESSURE</h6>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="card-footer">-->
+<!--                <h6 class="date ml-3 text-center">Current Date</h6>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+        <div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">94.86</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">93.88</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">93.65</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">93.78</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">94.12</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">93.61</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">93.07</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div><div class="col-12">
+            <div class="card text-white bg-info ">
+              <div class="row weather-box">
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h4 class="city mt-2">San Antonio, TX</h4>
+                  <h2 class="weather font-weight-bold">92.86</h2>
+                  <h5 class="description font-weight-light">few clouds</h5>
+                </div>
+                <div class="col-6 text-center mt-auto mb-auto">
+                  <h6 class="humidity mr-3 font-weight-light align-self-end">Humidity: 91</h6>
+                  <h6 class="wind mr-3 font-weight-light align-self-end">Wind Speed: 4.61˚ ESE</h6>
+                  <h6 class="pressure mr-3 font-weight-light align-self-end">Pressure: 1013</h6>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="date ml-3 text-center font-weight-light">8/21/2021</h4>
+              </div>
+            </div>
+          </div></div>
+      </div>
+
+<!--    -->
+        <script src="./MapBox Exercise API_files/jquery.min.js"></script>
+        <script src="./MapBox Exercise API_files/mapbox-gl.js"></script>
+        <script src="./MapBox Exercise API_files/keys.js"></script>
+<!--    -->
+    <script>
+      "use strict";
+      var globalData;
+      mapboxgl.accessToken = MAPBOX_API_TOKEN;
+      const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.491142, 29.424349], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+      });
+      //get weathermap for location
+      $.get('https://api.openweathermap.org/data/2.5/onecall', {
+        appid: WEATHER_MAP_API_TOKEN,
+        lat: 29.4252,
+        lon: -98.4916,
+        units: 'imperial'
+      }).done(function(data) {
+        data.daily.forEach(function (day) {
+          var card = "<div class=\"col-12\">\n" +
+                  "            <div class=\"card text-white bg-info \">\n" +
+                  "              <div class=\"row weather-box\">\n" +
+                  "                <div class=\"col-6 text-center mt-auto mb-auto\">\n" +
+                  "                  <h4 class=\"city mt-2\">San Antonio, TX</h4>\n" +
+                  `                  <h2 class=\"weather font-weight-bold\">${day.temp.day}</h2>\n` +
+                  "                  <h5 class=\"description font-weight-light\">DESCRIPTION</h5>\n" +
+                  "                </div>\n" +
+                  "                <div class=\"col-6 text-center mt-auto mb-auto\">\n" +
+                  "                  <h6 class=\"humidity mr-3 font-weight-light align-self-end\">HUMIDITY</h6>\n" +
+                  "                  <h6 class=\"wind mr-3 font-weight-light align-self-end\">WIND</h6>\n" +
+                  "                  <h6 class=\"pressure mr-3 font-weight-light align-self-end\">PRESSURE</h6>\n" +
+                  "                </div>\n" +
+                  "              </div>\n" +
+                  "              <div class=\"card-footer\">\n" +
+                  "                <h4 class=\"date ml-3 text-center font-weight-light\">Current Date</h4>\n" +
+                  "              </div>\n" +
+                  "            </div>\n" +
+                  "          </div>"
+          $(".insert-cards").append(
+                  card
+          );
+          console.log(card);
+        });
+        var currentdate = new Date();
+        var datetime =
+                (currentdate.getMonth()+1)  + "/"
+                + currentdate.getDate() + "/"
+                + currentdate.getFullYear();
+
+        $(".date").html(datetime);
+        // $(".weather").html(data.current.temp + "&#730" + "F");
+        $(".description").html(data.current.weather[0].description);
+        $(".humidity").html("Humidity: " + data.current.humidity);
+        $(".wind").html("Wind Speed: " + data.current.wind_speed + "&#730 " + windCardinalDirection(data.current.wind_deg));
+        $(".pressure").html("Pressure: " + data.daily[0].pressure);
+        console.log(data);
+      }).fail(function(error) {
+        console.log(error);
+      });
+
+
+      //Functions for correct formatting of strings
+
+      // This function takes a number between 0 and 360 and returns a
+      // wind direction abbreviation. the MapBox API gives us a "wind degrees" datum
+      // this takes the "wind degrees" and converts it into a familiar abbreviation
+
+      function windCardinalDirection(degrees){
+        let cardinalDirection = '';
+        if ((degrees > 348.75 && degrees <= 360) || (degrees >=0 && degrees <= 11.25)){
+          cardinalDirection = "N";
+        } else if (degrees > 11.25 && degrees  <= 33.75) {
+          cardinalDirection = "NNE";
+        } else if (degrees > 33.75 && degrees <= 56.25) {
+          cardinalDirection = "NE";
+        } else if (degrees > 56.25 && degrees <= 78.75) {
+          cardinalDirection = "ENE";
+        } else if (degrees > 78.75 && degrees <= 101.25) {
+          cardinalDirection = "E";
+        } else if (degrees > 101.25 && degrees <= 123.75) {
+          cardinalDirection = "ESE";
+        } else if (degrees > 123.75 && degrees <= 146.25) {
+          cardinalDirection = "SE";
+        } else if (degrees > 146.25 && degrees <= 168.75) {
+          cardinalDirection = "SSE";
+        } else if (degrees > 168.75 && degrees <= 191.25) {
+          cardinalDirection = "S";
+        } else  if (degrees > 191.25 && degrees <= 213.75) {
+          cardinalDirection = "SSW";
+        } else if (degrees > 213.75 && degrees <= 236.25)  {
+          cardinalDirection = "SW";
+        } else if (degrees > 236.25 && degrees <= 258.75) {
+          cardinalDirection = "WSW";
+        } else if (degrees > 258.75 && degrees <= 281.25) {
+          cardinalDirection = "W";
+        } else if (degrees > 281.25 && degrees <= 303.75) {
+          cardinalDirection = "WNW";
+        } else if (degrees > 303.75 && degrees <= 326.25) {
+          cardinalDirection = "NW";
+        } else if (degrees > 326.75 && degrees <= 348.75) {
+          cardinalDirection = "NNW";
+        }
+        return cardinalDirection;
+      }
+      function getTime(){
+        var d = new Date( );
+        d.setHours( d.getHours() + 2 ); // offset from local time
+        var h = (d.getHours() % 12) || 12; // show midnight & noon as 12
+        return (
+                ( h < 10 ? '0' : '') + h +
+                ( d.getMinutes() < 10 ? ':0' : ':') + d.getMinutes() +
+                // optional seconds display
+                // ( d.getSeconds() < 10 ? ':0' : ':') + d.getSeconds() +
+                ( d.getHours() < 12 ? ' AM' : ' PM' )
+        );
+      }
+
+    </script>
+  
+</div></body></html>

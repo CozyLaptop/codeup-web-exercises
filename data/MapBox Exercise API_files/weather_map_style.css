@@ -1,0 +1,16 @@
+#map{
+    height: 100%;
+}
+#placeInput{
+    width: 95%;
+    position: absolute;
+    z-index: 1;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+}
+.insert-cards{
+    height: 100vh;
+ overflow: scroll;
+}

@@ -23,12 +23,14 @@
       </div>
 
 <!--    -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
-        <script src="js/keys.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+      <script src="js/keys.js"></script>
 <!--    -->
     <script>
       "use strict";
+      var placeName;
       mapboxgl.accessToken = MAPBOX_API_TOKEN;
 
       const map = new mapboxgl.Map({
@@ -54,7 +56,8 @@
           map.setCenter(searchedLonLat);
           map.setZoom(8);
           marker.setLngLat(searchedLonLat);
-          $(".place").html(data.features[0].place_name)
+          var placeName = data.features[0].place_name;
+          $(".place").html(placeName);
           refreshCards();
         });
       });
@@ -85,13 +88,10 @@
             }
             var card =
                     "          <div class=\"col-12 mb-2\">\n" +
-                    "            <div class=\"card mt-1 mb-1 ml-2 mr-2 text-white bg-info\">\n" +
-                    // "               <div class='card-header p-0>" +
-                    "                 <h5 class='text-center m-1 font-weight-light'>" + displayDay + "</h5>" +
-                    // "               </div>" +
+                    "            <div class=\"card ml-2 mr-2 text-white bg-info\">\n" +
+                    "               <h5 class='text-center m-1 font-weight-light'>" + displayDay + "</h5>" +
                     "               <div class=\"row\">\n" +
                     "                 <div class=\"col-6 text-center\">\n" +
-                    // "                   <h4>" + selectedPlace + "</h4>\n" +
                     "                   <h1 class=\"font-weight-bold\">" + day.temp.day + "&#730" + "F" + "</h1>\n" +
                     "                   <h5 class=\"font-weight-light\">" + day.weather[0].description + "</h5>\n" +
                     "                   </div>\n" +
@@ -110,6 +110,7 @@
           console.log(error);
         });
       }
+
       refreshCards();
       // Geocode and reverseGeocode functions
       function geocode(search, token) {
@@ -189,6 +190,12 @@
                 ( d.getHours() < 12 ? ' AM' : ' PM' )
         );
       }
+      map.addControl(
+              new MapboxGeocoder({
+                accessToken: MAPBOX_API_TOKEN,
+                mapboxgl: mapboxgl
+              })
+      );
 
     </script>
   </body>

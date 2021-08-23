@@ -1,5 +1,30 @@
-#map {
+body{
+    background-color: lightblue;
+}
+.everything-container{
     height: 100vh;
-    width: 100%;
-    object-fit: cover;
+}
+#map{
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #000000;
+}
+#placeInput{
+    width: 95%;
+    position: absolute;
+    z-index: 1;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px black;
+}
+.card-col{
+    height: 100vh;
+    overflow: hidden scroll;
+
 }
