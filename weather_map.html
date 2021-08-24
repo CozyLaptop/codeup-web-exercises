@@ -11,11 +11,11 @@
   <body class="container-fluid">
    <div class="row no-gutters everything-container">
       <div class="col-7 mb-3">
-          <div id="geocoder" class="geocoder"></div>
+          <div id="geocoder" class="geocoder col-12"></div>
           <div id="map" class="m-1"></div>
       </div>
       <div class="col-5 no-gutters card-col">
-        <div class="card mt-1 mb-2 ml-2 mr-2 text-white bg-info text-center place">SAN ANTONIO, TX, UNITED STATES</div>
+        <div class="card mt-1 mb-2 ml-2 mr-2 text-white bg-info text-center place"></div>
         <div class="row insert-cards mb-1"></div>
       </div>
    </div>
@@ -43,10 +43,12 @@
            marker: false,
            mapboxgl: mapboxgl
        });
+       document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
        var marker = new mapboxgl.Marker({
            draggable: true,
        })
-       .setLngLat([-98.49584979998528, 29.411475037661923])
+       .setLngLat([-98.48358471539157, 29.418933660422695])
        .addTo(map);
        geocoder.on('result', function(data) {
            console.log(data);
@@ -59,7 +61,6 @@
           lat: marker.getLngLat().lat,
           lng: marker.getLngLat().lng }
         reverseGeocode(coord, MAPBOX_API_TOKEN).then(function (data){
-            console.log(data);
           $(".place").html(data.features[0].place_name);
           refreshCards();
         });
@@ -88,17 +89,19 @@
                     "            <div class=\"card ml-2 mr-2 text-white bg-info\">\n" +
                     "               <h5 class='text-center m-1 font-weight-light'>" + displayDay + "</h5>" +
                     "               <div class=\"row\">\n" +
-                    "                 <div class=\"col-6 text-center\">\n" +
-                    "                   <h1 class=\"font-weight-bold\">" + day.temp.day + "&#730" + "F" + "</h1>\n" +
+                    "                 <div class=\"col-6 d-flex flex-column text-center align-items-center justify-content-center\">\n" +
+                    "                   <h1 class=\"font-weight-bold centered\">" + day.temp.day.toFixed(1) + "&#730" + "F" + "</h1>\n" +
+                    // "                 </div>" +
+                    // "                 <div class=\"col-6 d-flex align-items-center justify-content-center\">\n" +
                     "                   <h5 class=\"font-weight-light\">" + day.weather[0].description + "</h5>\n" +
-                    "                   </div>\n" +
-                    "                   <div class=\"col-6 text-center mt-auto mb-auto\">\n" +
-                    "                     <h6 class=\"mr-3 font-weight-light align-self-end\">" + "Humidity: " + day.humidity + "</h6>\n" +
-                    "                     <h6 class=\"mr-3 font-weight-light align-self-end\">" + day.wind_speed + " mph" + "</h6>\n" +
-                    "                     <h6 class=\"mr-3 align-self-end\">" + windCardinalDirection(day.wind_deg) +
-                    "                     <h6 class=\"mr-3 font-weight-light align-self-end\">" + "Pressure: " + day.pressure + "</h6>\n" +
-                    "                   </div>\n" +
                     "                 </div>\n" +
+                    "                 <div class=\"col-6 text-center mt-auto mb-auto\">\n" +
+                    "                   <h6 class=\"mr-3 font-weight-light align-self-end\">" + "Humidity: " + day.humidity + "</h6>\n" +
+                    "                   <h6 class=\"mr-3 font-weight-light align-self-end\">" + day.wind_speed + " mph" + "</h6>\n" +
+                    "                   <h6 class=\"mr-3 align-self-end\">" + windCardinalDirection(day.wind_deg) +
+                    "                   <h6 class=\"mr-3 font-weight-light align-self-end\">" + "Pressure: " + day.pressure + "</h6>\n" +
+                    "                 </div>\n" +
+                    "               </div>\n" +
                     "            </div>\n" +
                     "          </div>"
             $(".insert-cards").append(card);
@@ -107,7 +110,15 @@
           console.log(error);
         });
       }
-      refreshCards();
+       // Initial set of marker and refresh cards
+       reverseGeocode({
+           lat: marker.getLngLat().lat,
+           lng: marker.getLngLat().lng
+           },
+           MAPBOX_API_TOKEN).then(function (data){
+           $(".place").html(data.features[0].place_name);
+           refreshCards();
+       });
 
       // Geocode and reverseGeocode functions
       function geocode(search, token) {
@@ -179,7 +190,6 @@
                 ( d.getHours() < 12 ? ' AM' : ' PM' )
         );
       }
-      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
    </script>
   </body>
 </html>

@@ -9,16 +9,14 @@ body{
     border-radius: 10px;
     box-shadow: 2px 2px 5px #000000;
 }
-#placeInput{
-    width: 95%;
-    position: absolute;
-    z-index: 1;
+h1{
+    font-size: 4vw;
+    text-shadow: 2px 2px 5px #000000;
 }
 .centered {
     display: flex;
     justify-content: center;
 }
-
 .card{
     border-radius: 10px;
     box-shadow: 2px 3px 5px black;
@@ -26,16 +24,11 @@ body{
 .card-col{
     height: 100vh;
     overflow: hidden scroll;
-
 }
 .geocoder {
     position: absolute;
-    z-index: 1;
-    width: 100%;
-    left: 50%;
-    margin-left: -25%;
     top: 10px;
 }
-.mapboxgl-ctrl-geocoder {
-    min-width: 100%;
+.mapboxgl-ctrl{
+    width: 100% !important;
 }
