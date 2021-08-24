@@ -21,6 +21,47 @@ h1{
     border-radius: 10px;
     box-shadow: 2px 3px 5px black;
 }
+#map {
+    -webkit-animation: fadeIn linear .75s;
+    -moz-animation: fadeIn linear .75s;
+    -o-animation: fadeIn linear .75s;
+}
+.card{
+    animation: .5s slide-up;
+    margin-top: 0%;
+}
+@keyframes slide-up {
+    from {
+        margin-top: 100%;
+    }
+    to {
+        margin-top: 0%;
+    }
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
 .card-col{
     height: 100vh;
     overflow: hidden scroll;
