@@ -31,20 +31,20 @@
        "use strict";
        var placeName;
        mapboxgl.accessToken = MAPBOX_API_TOKEN;
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        // Set map to San Antonio on start.
-        center: [-98.491142, 29.424349] ,
-        zoom: 10
-      });
+       const map = new mapboxgl.Map({
+           container: 'map',
+           style: 'mapbox://styles/mapbox/streets-v11',
+           // Set map to San Antonio on start.
+           center: [-98.491142, 29.424349] ,
+           zoom: 11,
+           pitch: 60
+       });
        const geocoder = new MapboxGeocoder({
            accessToken: mapboxgl.accessToken,
            marker: false,
            mapboxgl: mapboxgl
        });
        document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
        var marker = new mapboxgl.Marker({
            draggable: true,
        })
@@ -58,9 +58,9 @@
        });
       marker.on('dragend', function() {
         var coord = {
-          lat: marker.getLngLat().lat,
-          lng: marker.getLngLat().lng }
-        reverseGeocode(coord, MAPBOX_API_TOKEN).then(function (data){
+            lat: marker.getLngLat().lat,
+            lng: marker.getLngLat().lng }
+          reverseGeocode(coord, MAPBOX_API_TOKEN).then(function (data){
           $(".place").html(data.features[0].place_name);
           refreshCards();
         });
@@ -84,6 +84,7 @@
               var dayOfWeek = new Date(day.dt * 1000);
               displayDay = (new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(dayOfWeek));
             }
+            console.log(data);
             var card =
                     "          <div class=\"col-12 mb-2\">\n" +
                     "            <div class=\"card ml-2 mr-2 text-white bg-info\">\n" +
@@ -91,7 +92,7 @@
                     "               <div class=\"row\">\n" +
                     "                 <div class=\"col-6 d-flex flex-column text-center align-items-center justify-content-center\">\n" +
                     "                   <h1 class=\"font-weight-bold centered\">" + day.temp.day.toFixed(1) + "&#730" + "F" + "</h1>\n" +
-                    "                   <h5 class=\"font-weight-light\">" + day.weather[0].description + "</h5>\n" +
+                    "                   <h5 class=\"font-weight-light\">" + day.weather[0].description + `<img class="icon-image" src="http://openweathermap.org/img/w/` + day.weather[0].icon + `.png">` + "</h5>\n" +
                     "                 </div>\n" +
                     "                 <div class=\"col-6 text-center mt-auto mb-auto\">\n" +
                     "                   <h6 class=\"mr-3 font-weight-light align-self-end\">" + "Humidity: " + day.humidity + "</h6>\n" +
@@ -135,6 +136,7 @@
                   return res.json();
                 })
       }
+
       //Functions for correct formatting of strings
 
       // This function takes a number between 0 and 360 and returns a
