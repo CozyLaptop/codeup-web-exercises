@@ -42,6 +42,30 @@ const users = [
 var newUsers = users.filter(function(user) {
     return user.languages.length > 2;
 });
-console.log(newUsers);
 
-testText.innerHTML = newUsers;
+var mappedUsers = users.map(function(user){
+    testText.innerHTML += user.email + "<br>";
+    return user.email;
+});
+
+// const numbers = [1, 2, 3, 4, 5];
+
+var reducedUsers = users.reduce((totalYears, user) => {
+    // console.log(totalYears)
+    return totalYears + user.yearsOfExperience;
+}, 0);
+// console.log(reducedUsers);
+testText.innerHTML += "<br>" + reducedUsers;
+var longestEmail = users.reduce((longestEmailFromList, user, index) => {
+    if (longestEmailFromList.length < user.email.length){
+        longestEmailFromList = user.email;
+    }
+    return longestEmailFromList;
+}, "0");
+testText.innerHTML += "<br>" + longestEmail;
+
+var userNames = users.reduce((username, user, index) => {
+    testText.innerHTML += "<br>" + user.name;
+    return username + user.name;
+}, "");
+console.log(userNames)
