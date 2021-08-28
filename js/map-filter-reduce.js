@@ -57,6 +57,7 @@ var reducedUsers = users.reduce((totalYears, user) => {
 // console.log(reducedUsers);
 testText.innerHTML += "<br>" + reducedUsers;
 var longestEmail = users.reduce((longestEmailFromList, user, index) => {
+    var tempLanguagesFromUser = "";
     if (longestEmailFromList.length < user.email.length){
         longestEmailFromList = user.email;
     }
@@ -69,3 +70,16 @@ var userNames = users.reduce((username, user, index) => {
     return username + user.name;
 }, "");
 console.log(userNames)
+
+var languages = users.reduce((uniqueLanguages, user, index) => {
+    user.languages.forEach(function (lang){
+        // if (uniqueLanguages.){
+        // }
+    });
+    // uniqueLanguages = user.languages.reduce((uniqueLanguageFromUser, user, index) => {
+    //     if (uniqueLanguages.includes(uniqueLanguageFromUser)){
+    //
+    //     }
+    // }, [])
+    return uniqueLanguages;
+}, "");
