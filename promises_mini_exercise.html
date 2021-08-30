@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  "use strict";
+
+  // returns a promise that resolves after two seconds if the UTC second is even and rejects if it is odd
+  // function successIfEvenUTCSecond() {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(function() {
+  //       const second = new Date().getUTCSeconds();
+  //       if (second % 2 === 0) {
+  //         resolve(second);
+  //       } else {
+  //         reject(second);
+  //       }
+  //     }, 2000);
+  //   });
+  // }
+  //
+  // const aPromise = successIfEvenUTCSecond();
+  // aPromise.then(function (value){
+  //   console.log(`${value} is an even number!`)
+  // })
+  // .catch(function (value){
+  //   console.log(`${value} is an odd number!`)
+  // })
+  //
+  // // TODO: if aPromise resolves, console.log 'VALUE_HERE is an even number!'
+  // // TODO: if aPromise rejects, console.error 'VALUE_HERE is an odd number!'
+  // -------- MINI EXERCISE 2
+  /* TODO: make a GET request using fetch to the Programming Quote API url and log just the text of the random quote.
+   */
+  // const quoteUrl = `http://quotes.stormconsultancy.co.uk/random.json`;
+  // fetch(quoteUrl)
+  // .then(value => value.json())
+  // .then(function (value){
+  //   console.log(value.quote);
+  // }).catch()
+  const url = 'https://hookb.in/8Plga0XK20TpLGKKLPR1';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify("This is a test creation."),
+  };
+  fetch(url, options)
+  .then(()=> console.log("Created successfully."));
+
+
+</script>
+</body>
+</html>
