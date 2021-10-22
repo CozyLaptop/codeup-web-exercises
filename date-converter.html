@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Conversion Example</title>
+</head>
+<body>
+
+<h1>Date Conversion Example</h1>
+<main>
+  <h3>Ads</h3>
+  <article>
+    <h4>Cat for Sale!</h4>
+    <p>WARNING: will be when pet.</p>
+    <p>Posted at <span class="date">2020-04-06 12:39:06</span></p>
+  </article>
+  <article>
+    <h4>Another Cat for Sale!</h4>
+    <p>WARNING: cat hair will be everywhere.</p>
+    <p>Posted at <span class="date">2021-02-27 1:20:09</span></p>
+  </article>
+</main>
+<script>
+  "use strict";
+
+  /**
+   * Returns a given date in the format of MM/DD/YYYY
+   * FYI: Moment JS, a popular JavaScript date library, is a popular alternative to logic like this function for creating a custom date output.
+   * @param dateToConvert
+   * @returns {string}
+   */
+  function dateConverter(dateToConvert) {
+    const dateObject = new Date(dateToConvert);
+    return `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+  }
+
+  var dates = document.querySelectorAll(".date");
+  dates.forEach(function(date){
+    date.innerText = dateConverter(date.innerText);
+  });
+  // TODO: add the needed JS to convert dates in spans with class of `date` to the output of the dateConverter function. Vanilla JS solution (without jQuery) preferred.
+
+  // create a collection of date classes
+
+  // for each node, change the inner HTML to the output of the date converter function
+
+</script>
+</body>
+</html>
